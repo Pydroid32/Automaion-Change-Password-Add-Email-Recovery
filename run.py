@@ -20,8 +20,9 @@ opts = uc.ChromeOptions()
 opts.add_argument('--start-maximized')
  
 def xpath_type(el,mount):
-    return wait(browser,15).until(EC.element_to_be_clickable((By.XPATH, el))).send_keys(mount)
- 
+    element_input = wait(browser,15).until(EC.element_to_be_clickable((By.XPATH, el)))
+    element_input.send_keys(Keys.CONTROL+"a")
+    element_input.send_keys(mount)
 def xpath_el(el):
     element_all = wait(browser,30).until(EC.element_to_be_clickable((By.XPATH, el)))
     
